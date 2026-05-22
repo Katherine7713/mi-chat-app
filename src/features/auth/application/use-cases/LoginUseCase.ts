@@ -1,0 +1,17 @@
+import { User } from "@features/auth/domain/entities/User";
+import { IAuthRepository } from "@features/auth/domain/repositories/IAuthRepository";
+import { AuthError } from "@shared/domain/error/AppError";
+
+export class LoginUseCase {
+    constructor(private readonly authRepo: IAuthRepository) {}
+
+    async execute(email: string, password:string): Promise<User> {
+        if (!email || !password)
+            throw new AuthError("Email y contraseña son requeridos");
+        try {
+            return await this.authRepo.login(email, password);
+        } catch (error) {
+            throw new AuthError("Credenciales inválidas", error);
+        }
+    }
+}
