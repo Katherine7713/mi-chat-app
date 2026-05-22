@@ -4,14 +4,14 @@ import { useChat } from "@features/chat/presentation/hooks/useChat";
 import { useLocalSearchParams } from "expo-router";
 import { useCallback, useEffect, useRef, useState } from "react";
 import {
-    FlatList,
-    KeyboardAvoidingView,
-    Platform,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  FlatList,
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 export default function ChatScreen() {
@@ -94,7 +94,8 @@ const styles = StyleSheet.create({
   time: { fontSize: 10, color: "#aaa", marginTop: 4, alignSelf: "flex-end" },
   inputRow: {
     flexDirection: "row",
-    padding: 8,
+    padding: 12,
+    paddingBottom: 30,
     backgroundColor: "#fff",
     borderTopWidth: 1,
     borderColor: "#e0e0e0",
