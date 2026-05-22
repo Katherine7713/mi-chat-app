@@ -1,4 +1,7 @@
+import { Ionicons } from "@expo/vector-icons";
 import { useAuth } from "@features/auth/presentation/hooks/useAuth";
+import { BlurView } from "expo-blur";
+import { LinearGradient } from "expo-linear-gradient";
 import { Link } from "expo-router";
 import { useState } from "react";
 import {
@@ -9,9 +12,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
-import { BlurView } from "expo-blur";
-import { Ionicons } from "@expo/vector-icons";
 
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
@@ -20,12 +20,10 @@ export default function LoginScreen() {
   const { login, isLoading, error } = useAuth();
 
   return (
-    // Se envuelve en un arreglo [styles.container] para solucionar el error de TypeScript
     <LinearGradient
       colors={["#4a154b", "#2c114d", "#130924"]}
       style={[styles.container]}
     >
-      {/* Tarjeta con efecto Glassmorphism */}
       <BlurView intensity={25} tint="light" style={styles.card}>
         
         <Text style={styles.title}>Login</Text>
@@ -67,20 +65,6 @@ export default function LoginScreen() {
           />
         </View>
 
-        <View style={styles.rowActions}>
-          <TouchableOpacity 
-            style={styles.checkboxContainer} 
-            onPress={() => setRememberMe(!rememberMe)}
-          >
-            <View style={[styles.checkbox, rememberMe && styles.checkboxChecked]} />
-            <Text style={styles.actionText}>Remember me</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <Text style={styles.actionText}>Forgot password?</Text>
-          </TouchableOpacity>
-        </View>
-
         <TouchableOpacity
           style={styles.button}
           onPress={() => login({ email, password })}
@@ -93,11 +77,10 @@ export default function LoginScreen() {
           )}
         </TouchableOpacity>
 
-        {/* Enlace de Registro */}
         <View style={styles.registerContainer}>
-          <Text style={styles.registerText}>Don't have an account? </Text>
+          <Text style={styles.registerText}>¿Crea una cuenta? </Text>
           <Link href="/(auth)/register" style={styles.link}>
-            Register
+            Registrate
           </Link>
         </View>
 

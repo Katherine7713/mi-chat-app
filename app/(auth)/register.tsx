@@ -96,7 +96,7 @@ export default function RegisterScreen() {
         </TouchableOpacity>
 
         <View style={styles.loginContainer}>
-          <Text style={styles.loginText}>Already have an account? </Text>
+          <Text style={styles.loginText}>¿Ya tienes una cuenta? </Text>
           <Link href="/(auth)/login" style={styles.link}>
             Login
           </Link>
